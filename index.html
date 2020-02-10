@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Animacija kruga</title>
+<link href="style.css" rel="stylesheet">
+</head>
+
+<style>
+
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+
+#box1 {
+	height: 600px;
+	width: 700px;
+	margin: 50px auto;
+	position: relative;
+	background: #000000;
+}
+
+#box2 {
+	height: 280px;
+	width: 280px;
+	position: relative;
+	top: 160px;
+	left: 210px;
+	border-radius: 50%;
+	background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+	animation-name: animacija-kruga;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-play-state: running;
+}
+
+#box2::before {
+	position: absolute;
+	content: '';
+	border-radius: 50%;
+	width: 220px;
+	height: 220px;
+	top: 30px;
+	left: 30px;
+	background: #000;
+}
+
+#box2::after {
+	position: absolute;
+	content: '';
+	border-radius: 50%;
+	width: 220px;
+	height: 220px;
+	top: 30px;
+	left: 30px;
+	background: #220708;
+	animation-name: sale;
+	animation-duration: 1s;
+	animation-timing-function: ease;
+	animation-iteration-count: infinite;
+	animation-play-state: running;
+}
+
+@keyframes animacija-kruga{
+	0%{
+		transform: rotate(0deg);
+	}
+	
+	100%{
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes sale{
+	0%{
+		transform: scale(0.2);
+	}
+	
+	25%{
+		transform: scale(0.4);
+	}
+	
+	50%{
+		transform: scale(0.6);
+	}
+	
+	75%{
+		transform: scale(0.8);
+	}
+	
+	100%{
+		transform: scale(1);
+	}
+}
+
+#box3 {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+	filter: blur(45px);
+	z-index: -1;
+}
+</style>
+<body>
+	<div id="box1">
+		<div id="box2">
+		<div id="box3"></div>
+		</div>
+	</div>
+</body>
+</html>
